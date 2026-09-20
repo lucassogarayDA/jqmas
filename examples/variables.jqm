@@ -1,0 +1,17 @@
+// Ejemplo de variables en Jqmas
+haz[nombre = 'Lucas']
+pres['hola ', nombre]
+
+haz[a = 2]
+haz[b = 3]
+pres[a + b]
+pres[a * b]
+
+haz[contador = 0]
+haz[contador = contador + 1]
+haz[contador = contador + 1]
+haz[contador = contador + 1]
+pres['contador final: ', contador]
+
+haz[pi = 3.14]
+pres['pi aprox: ', pi]

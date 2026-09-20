@@ -5,9 +5,8 @@ import sys
 from pathlib import Path
 
 from jqmas import __version__
-from jqmas.evaluator.evaluator import Evaluator
-from jqmas.lexer.lexer import Lexer
-from jqmas.parser.parser import Parser
+from jqmas.engine import EngineError, run as engine_run
+from jqmas.errors import formatear_error_detail
 from jqmas.repl.repl import run_repl
 
 
@@ -27,17 +26,18 @@ def run_file(path: str) -> int:
 def run_source(source: str) -> int:
     """Ejecuta código fuente Jqmas."""
     try:
-        tokens = Lexer(source).tokenize()
-        ast = Parser(tokens).parse()
-        evaluator = Evaluator()
-        evaluator.evaluate(ast)
-        return 0
-    except SyntaxError as e:
-        print(f"Error de sintaxis: {e}", file=sys.stderr)
-        return 1
-    except Exception as e:
+        result = engine_run(source)
+    except EngineError as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1
+
+    if result.errors:
+        for err in result.errors:
+            print(formatear_error_detail(err), file=sys.stderr)
+        return 1
+
+    sys.stdout.write(result.output)
+    return 0
 
 
 def main() -> None:

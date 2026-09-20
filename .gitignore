@@ -33,3 +33,7 @@ Thumbs.db
 
 # PyPI
 .pypirc
+
+# Binario compilado
+jqmas-core
+go/jqmas-core
