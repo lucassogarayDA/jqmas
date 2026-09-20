@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jqmas"
+version = "0.1.0"
+description = "Jqmas: un lenguaje de programación general con sintaxis propia"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Lucas Sogaray", email = "lucassogaray72@gmail.com" }
+]
+keywords = ["language", "interpreter", "programming-language", "jqmas"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Interpreters",
+]
+
+[project.urls]
+Homepage = "https://github.com/lucassogarayDA/jqmas"
+Repository = "https://github.com/lucassogarayDA/jqmas"
+Issues = "https://github.com/lucassogarayDA/jqmas/issues"
+
+[project.scripts]
+jqmas = "jqmas.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

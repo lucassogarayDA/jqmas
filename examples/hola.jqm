@@ -1,0 +1,9 @@
+// Primer programa en Jqmas
+pres['hola mundo']
+pres[2 + 3 * 4]
+pres[not/'adios']
+pres[19, 'hola', not2/'hi']
+pres[not3/'con 3 saltos antes']
+pres['a', 'b', 'c']
+pres[2.5 + 1.5]
+pres['Jqmas' + ' ' + 'v0.1']
